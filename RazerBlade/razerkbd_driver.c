@@ -427,6 +427,25 @@ int razer_attr_write_mode_static(IOUSBDeviceInterface **usb_dev, const char *buf
     if(count == 3) {
         report = razer_chroma_standard_matrix_effect_static(VARSTORE, BACKLIGHT_LED, (struct razer_rgb*)&buf[0]);
         razer_send_payload(usb_dev, &report);
+        /* gaming mode */
+                char buffer[90];
+                memset(buffer, 0x00, sizeof(buffer));
+                 // All packets
+                 buffer[0] = 0x00;
+                 buffer[1] = 0x1f;
+                 buffer[2] = 0x00;
+                 buffer[3] = 0x00;
+                 buffer[4] = 0x00;
+                 buffer[5] = 0x04;
+                 buffer[6] = 0x0d;
+                 buffer[7] = 0x02;
+                 buffer[8] = 0x00;
+                 buffer[9] = 0x01;
+                 buffer[10] = 0x01; // 0x00 = normal mode, 0x01 = gaming mode
+                 buffer[11] = 0x00;
+         razer_send_payload(usb_dev, buffer);
+        /* End gaming mode */
+
     } else {
         printf("razerkbd: mode only accepts RGB (3byte)");
     }
