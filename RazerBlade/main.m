@@ -87,8 +87,12 @@ int main(int argc, const char * argv[]) {
                 
             }
             
-            razer_attr_write_mode_breath(dev, "1", 1);
-            
+              char rgb[3];
+            rgb[0] = 255; // Red: 0-255
+            rgb[1] = 255; // Green: 0-255
+            rgb[2] = 255; // Blue: 0-255
+            razer_attr_write_mode_static(dev, rgb, 3);
+
             //Close this device and release object
             kr = (*dev)->USBDeviceClose(dev);
             kr = (*dev)->Release(dev);
