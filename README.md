@@ -1,4 +1,7 @@
-# osx-razer-blade
+# osx-razer-blade / MacBook Style
+
+*Some shady code changes to switch the keyboard to white color and enable the gaming mode to unlock the CPU.*
+
 Userland console application to control lights on Razer Blade that are running a Hackintosh (macOS on a non-Apple device).
 
 The tool is currently a proof of concept and is intended for use by developers. The Razer driver logic was ported from the Linux project, https://github.com/terrycain/razer-drivers/.
