@@ -47,10 +47,10 @@ int main(int argc, const char * argv[]) {
             
             kr = IOCreatePlugInInterfaceForService(usbDevice, kIOUSBDeviceUserClientTypeID, kIOCFPlugInInterfaceID, &plugInInterface, &score);
             
-            //Don’t need the device object after intermediate plug-in is created
+            // Don’t need the device object after intermediate plug-in is created
             kr = IOObjectRelease(usbDevice);
             if ((kIOReturnSuccess != kr) || !plugInInterface) {
-                printf("Unable to create a plug-in (%08x)\n", kr);
+               // printf("Unable to create a plug-in (%08x)\n", kr);
                 continue;
                 
             }
